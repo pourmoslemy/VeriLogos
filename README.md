@@ -1,340 +1,170 @@
-# VeriLogos
+VeriLogos
+Topological Market Regime Detection and Verification Framework
 
-**Topological Market Regime Detection and Verification Framework**
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.1.0-green.svg)](https://github.com/pourmoslemy/VeriLogos)
 
-VeriLogos is a research-oriented Python framework for modeling structure, dynamics, and verification through **topology**, **geometric logic**, **temporal filtration**, and **persistent homology**.
 
-Originally migrated from the broader **SANN** architecture, VeriLogos provides a clean, layered foundation for building systems that reason about complex structures as **geometric objects** rather than flat labels or isolated signals.
 
-It is currently focused on **topological market regime detection**, with an architecture extensible to broader verification and reasoning tasks.
 
----
 
-## 📋 Table of Contents
+VeriLogos is a research‑oriented Python framework for modeling structural dynamics and verification using concepts from topology, geometric logic, temporal filtrations, and persistent homology.
 
-- [Why VeriLogos?](#why-verilogos)
-- [Core Idea](#core-idea)
-- [Key Features](#key-features)
-- [Architecture](#architecture)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Example Workflows](#example-workflows)
-- [Testing](#testing)
-- [Current Scope](#current-scope)
-- [Research Motivation](#research-motivation)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
-- [Citation](#citation)
+Rather than representing system states as simple scalar labels, VeriLogos models them as geometric structures. This enables analysis of how relationships between elements form, evolve, persist, and collapse over time.
 
----
+The project was originally extracted from the broader SANN architecture and redesigned as a standalone framework with a clear layered structure.
 
-## Why VeriLogos?
+The current application focus is topological market regime detection, though the architecture is intentionally general enough to support other structural reasoning and verification tasks.
 
-Most analytical systems treat truth, risk, or market state as a **scalar output**:
-- bullish / bearish
-- true / false
-- anomaly / normal
+Table of Contents
+Overview
+Why VeriLogos
+Core Idea
+Key Features
+Architecture
+Project Structure
+Installation
+Quick Start
+Example Workflow
+Testing
+Research Motivation
+Roadmap
+Contributing
+License
+Author
+Citation
+Overview
+Many analytical and machine learning systems represent system state as a single label or scalar value, for example:
 
-VeriLogos takes a different approach.
+bullish / bearish
+true / false
+anomaly / normal
+While useful, these representations often discard the structure of relationships that produce those outcomes.
 
-It treats structure as something that can be represented by:
-- **simplicial complexes**
-- **subcomplex relations**
-- **filtrations over time**
-- **persistent topological features**
-- **logical operations over geometry**
+VeriLogos approaches the problem differently.
 
-This makes it possible to study not only *what* a system predicts, but also **how structure forms, persists, transforms, and collapses**.
+It represents system states as topological objects, allowing the system to analyze not only outcomes, but also the structural patterns that generate them.
 
-In practical terms, this supports:
-- structural market regime detection
-- interpretable topology-driven alerts
-- topological backtesting
-- geometry-based reasoning pipelines
-- future extensions toward misinformation detection and truth-structure modeling
+Using this perspective, the framework enables:
 
----
+structural representation of complex systems
+analysis of relationships between variables
+detection of persistent patterns across scales
+reasoning about structural change over time
+Why VeriLogos
+Many real‑world systems are fundamentally relational and dynamic.
 
-## Core Idea
+Financial markets, information systems, and complex networks evolve through interacting structures rather than isolated signals.
 
-VeriLogos is built on the idea that important phenomena are often better modeled as **shapes of relations** rather than isolated variables.
+VeriLogos models these systems using:
+
+Simplicial complexes for relational structure
+Subcomplex relations for structural decomposition
+Temporal filtrations for evolution through time
+Persistent homology for identifying stable patterns
+Geometric logic for reasoning about structural states
+This structural perspective allows investigation of questions such as:
+
+Which structural patterns persist across time?
+Which structural changes signal regime shifts?
+Which relationships remain stable under scale changes?
+Core Idea
+VeriLogos is based on the hypothesis that many complex systems are better modeled as geometric structures of relations rather than flat feature vectors.
 
 Instead of asking only:
 
-> "What is the predicted label?"
+What label should be predicted?
 
-VeriLogos also asks:
+The framework asks additional structural questions:
 
-> "What is the geometric structure of the situation?"  
-> "What persists across scales or time?"  
-> "What transformations preserve or violate the underlying logic?"  
+What geometric configuration describes the system state?
+Which structures persist across scales or time?
+Which transformations preserve or violate structural logic?
+This viewpoint is particularly useful when:
 
-This perspective is especially useful when:
-- relationships matter more than individual datapoints
-- temporal evolution is part of the signal
-- explainability is needed
-- persistent structural patterns carry semantic value
+relationships between variables are critical
+systems evolve over time
+structural stability matters
+interpretability is important
+Key Features
+Topological Foundations
+Simplicial complex construction
+Subcomplex representation
+Face‑closure validation
+Dimension tracking
+Set‑theoretic operations on complexes
+Geometric Logic
+Deterministic logical reasoning over structures
+Timeless structural evaluation
+Explicit separation from temporal reasoning
+Entailment‑style logical outcomes
+Temporal Semantics
+Filtration‑based structural evolution
+Time‑indexed valuation of complexes
+Support for dynamic structural reasoning
+Persistent Homology
+Persistence computation interfaces
+Betti number extraction
+Barcode and interval representations
+Multi‑scale topological feature detection
+Application Components
+Market monitoring engines
+Realtime structural analysis
+Backtesting utilities
+Example scripts and test suite
+Architecture
+VeriLogos follows a layered architecture designed to keep mathematical structure, temporal reasoning, and application logic clearly separated.
 
----
-
-## Key Features
-
-### 🔷 Topological Foundations
-- Simplicial complex construction
-- Subcomplex representation
-- Face-closure validation
-- Dimension tracking
-- Set-theoretic operations on complexes
-
-### 🔶 Geometric Logic
-- Pure SC-logic style operations
-- Deterministic, timeless logical evaluation
-- Explicit separation from temporal and modal layers
-- Structured entailment-style outputs
-
-### ⏱️ Temporal Semantics
-- Filtration-based evolution of structure
-- Temporal valuation components
-- Support for dynamic structural reasoning
-
-### 📊 Persistent Homology
-- Persistence computation interfaces
-- Barcode and interval abstractions
-- Persistence engine support
-- Topological feature extraction across scales
-
-### 🧠 Reasoning and API Layer
-- Public facade-style imports
-- Reasoning API access
-- Modal status abstractions
-- Clean architecture aligned API mapping
-
-### 🚀 Applied System Components
-- Application engines
-- Realtime monitoring modules
-- Market data sources
-- Backtesting infrastructure
-- Example scripts and test suite
-
----
-
-## Architecture
-
-VeriLogos follows a **strict layered architecture**.
-
-This is one of the project's defining design principles.
-
-### Layer
-درست می‌گویی — برای `README.md` باید **Markdown خالص** باشد تا مستقیم در گیت‌هاب کار کند. پایین یک نسخه کامل و تمیز Markdown می‌گذارم که **می‌توانی مستقیم کپی کنی داخل `README.md`**.
-
-# VeriLogos
-
-Topological Market Regime Detection and Verification Framework
-
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-![Version](https://img.shields.io/badge/version-0.1.0-green)
-
-VeriLogos is a research-oriented Python framework for modeling structure, dynamics, and verification using topology, geometric logic, temporal filtration, and persistent homology.
-
-Originally migrated from the SANN architecture, VeriLogos provides a layered foundation for systems that reason about structures as geometric objects instead of scalar labels.
-
-Current focus: **topological market regime detection**.
-
----
-
-# Table of Contents
-
-- Why VeriLogos
-- Core Idea
-- Key Features
-- Architecture
-- Project Structure
-- Installation
-- Quick Start
-- Testing
-- Research Motivation
-- Roadmap
-- License
-- Author
-- Citation
-
----
-
-# Why VeriLogos
-
-Most analytical systems treat system state as scalar outputs:
-
-- bullish / bearish
-- true / false
-- anomaly / normal
-
-VeriLogos models **structure as geometry** instead.
-
-This includes:
-
-- simplicial complexes
-- subcomplex relations
-- filtrations across time
-- persistent homology
-- logical operations over topology
-
-This allows analysis of:
-
-- structural market regimes
-- persistence of patterns
-- structural anomalies
-- interpretable topology-driven alerts
-
----
-
-# Core Idea
-
-VeriLogos treats system state as a **geometric structure**.
-
-Instead of asking:
-
-"What label should be predicted?"
-
-VeriLogos asks:
-
-- What is the geometric structure?
-- What persists across time?
-- Which structures remain stable across scales?
-
-This approach is useful when:
-
-- relationships matter more than individual variables
-- systems evolve through time
-- interpretability is required
-- persistent structure carries meaning
-
----
-
-# Key Features
-
-## Topological Foundations
-
-- Simplicial complex construction
-- Subcomplex representation
-- Face closure validation
-- Dimension tracking
-- Set-theoretic operations
-
-## Geometric Logic
-
-- Deterministic SC‑Logic operations
-- Pure structural reasoning
-- Layer separation from temporal semantics
-- Entailment-style evaluation
-
-## Temporal Semantics
-
-- Filtration sequences
-- Temporal valuation
-- Structural evolution across time
-
-## Persistent Homology
-
-- Betti numbers
-- Persistence intervals
-- Barcode representation
-- Topological feature extraction
-
-## Application Layer
-
-- Market monitoring engines
-- Realtime topology tracking
-- Backtesting pipeline
-- Data connectors
-
----
-
-# Architecture
-
-VeriLogos uses a strict layered architecture.
-
-
-Layer 3  Modal Semantics
-Layer 2  Temporal Semantics
-Layer 1  Geometric Logic
-Layer 0  Topology
-
-## Layer 0 — Topology
-
-Core structures:
-
-- SimplicialComplex
-- Subcomplex
+text
+Layer 3 — Modal Semantics
+Layer 2 — Temporal Semantics
+Layer 1 — Geometric Logic
+Layer 0 — Topology
+Layer 0 — Topology
+Core mathematical structures.
 
 Responsibilities:
 
-- simplex normalization
-- face closure
-- dimension tracking
-- set operations
+simplicial complex representation
+simplex normalization
+face‑closure validation
+dimension tracking
+set operations
+Constraints:
 
-Forbidden at this layer:
-
-- temporal awareness
-- modal logic
-- external state mutation
-
----
-
-## Layer 1 — Geometric Logic
-
-Pure logical operations on complexes.
+no temporal reasoning
+no modal logic
+no external side effects
+Layer 1 — Geometric Logic
+Performs logical reasoning over topological structures.
 
 Properties:
 
-- deterministic
-- timeless
-- side‑effect free
-
-Typical outputs:
-
+deterministic
+side‑effect free
+independent of temporal context
+Typical outputs include structural entailment states such as:
 
 explicit
 inferable
 not_entailed
+Layer 2 — Temporal Semantics
+Introduces temporal evolution of structures through filtration sequences and time‑dependent evaluation.
 
----
+Components include:
 
-## Layer 2 — Temporal Semantics
+temporal filtration construction
+structural state evolution
+dynamic reasoning support
+Layer 3 — Modal Semantics
+High‑level reasoning and evaluation layer.
 
-Adds time-aware reasoning.
+This layer coordinates:
 
-Components:
-
-- filtration
-- temporal valuation
-- structural evolution
-
----
-
-## Layer 3 — Modal Semantics
-
-High-level reasoning layer.
-
-Capabilities:
-
-- modal reasoning
-- entailment evaluation
-- reasoning APIs
-
----
-
-# Project Structure
-
-
+modal reasoning
+structural verification
+reasoning APIs exposed to applications
+Project Structure
+text
 VeriLogos/
 │
 ├── docs/
@@ -355,100 +185,83 @@ VeriLogos/
 ├── pyproject.toml
 ├── requirements.txt
 └── README.md
+Installation
+Clone the repository:
 
----
-
-# Installation
-
-Clone repository:
-
-
+text
 git clone https://github.com/pourmoslemy/VeriLogos.git
 cd VeriLogos
+Install in development mode:
 
-Install package:
-
-
+text
 pip install -e .
+Quick Start
+Run the test suite:
 
----
-
-# Quick Start
-
-Run tests:
-
-
+text
 pytest tests/ -v
-
 Example imports:
 
-
+text
 from verilogos.core import SimplicialComplex
 from verilogos.core import Subcomplex
 from verilogos.core import TemporalFiltration
-from verilogos.core.persistence import PersistenceEngine
+from verilogos.persistence import PersistenceEngine
+Example Workflow
+A typical workflow in VeriLogos involves:
 
----
+Constructing a simplicial complex from relational data
+Building a temporal filtration describing system evolution
+Computing persistent homology across scales
+Extracting topological features
+Applying logical reasoning to analyze structural regimes
+Testing
+Run all tests:
 
-# Testing
-
-Run the full test suite:
-
-
+text
 pytest tests/ -v
-
 Verbose mode:
 
-
+text
 pytest tests/ -vv
+Research Motivation
+VeriLogos explores the idea that system states and logical relationships can be represented as geometric structures.
 
----
+Potential research directions include:
 
-# Research Motivation
+topology‑based AI systems
+geometric reasoning architectures
+structural anomaly detection
+topology‑driven explainable models
+Roadmap
+Future work may include:
 
-VeriLogos explores the idea that **truth and system states can be modeled as geometric structures**.
+topology visualization tools
+persistence diagram generation
+Betti curve plotting utilities
+larger experimental datasets
+extended structural reasoning modules
+Contributing
+Contributions are welcome.
 
-Research directions include:
+Areas of interest include:
 
-- topological AI
-- geometric reasoning systems
-- structural truth modeling
-- interpretable topology-based machine learning
-
----
-
-# Roadmap
-
-Planned improvements:
-
-- visualization tools
-- persistence diagrams
-- Betti curve plotting
-- expanded datasets
-- improved experiments
-- research pipelines for truth geometry
-
----
-
-# License
-
+topology algorithms
+structural reasoning methods
+visualization tools
+documentation improvements
+License
 MIT License
 
----
-
-# Author
-
+Author
 Alireza Pourmoslemi
 
 Email: apmath99@gmail.com
 
----
-
-# Citation
-
+Citation
 If you use VeriLogos in research:
 
-
+text
 @software{pourmoslemi_verilogos_2026,
   author = {Pourmoslemi, Alireza},
   title = {VeriLogos: Topological Market Regime Detection Framework},
