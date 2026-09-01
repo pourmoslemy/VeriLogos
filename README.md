@@ -1,8 +1,7 @@
 # VeriLogos
 
-## A Topological Knowledge Engine for Simplicial Complex Logic Logic
-
-VeriLogos is a research-oriented computational framework for representing,, and analyzing logical knowledge through simplicial complexes.
+## A Topological Knowledge Engine for Simplicial Complex Logic 
+VeriLogos is a research-oriented computational framework for representing and analyzing logical knowledge through simplicial complexes.
 
 The project is based on **Simplicial Complex Logic (SC-Logic)**: a geometric approach to logical representation in which propositions, truth states, relations, and evolving information structures are modeled through simplices, subcomplexes, inclusions, and topological transformations.
 
@@ -173,7 +172,7 @@ Layer 0 is responsible for:
 
 VeriLogos restricts logical operations to valid closed subcomplexes whenever required by the formal semantics.
 
-This restriction is important because arbitrary collections of simplices may fail to represent a coherent simplicial coherent simplicial object. Closure ensures that logical transformations remain inside the admissible topological space Layer 1: SC-Logic Operations
+This restriction is important because arbitrary collections of simplices may fail to represent a coherent simplicial object. Closure ensures that logical transformations remain inside the admissible topological space Layer 1: SC-Logic Operations
 
 Layer 1 implements logical operations over the geometric structures provided by Layer 0.
 
@@ -215,8 +214,8 @@ At this layer:
 - logical strength may correspond to inclusion;
 - entailment may correspond to a structural relation;
 - conjunction may correspond to common structure;
-- disjunction may correspond to correspond to generated combined structure;
-- implication may be evaluated relative to the ambientThis layer is the logical core of VeriLogos.
+- disjunction may correspond to generated combined structure;
+- implication may be evaluated relative to the ambient. This layer is the logical core of VeriLogos.
 
 ---
 
@@ -447,7 +446,6 @@ The distinction is important for avoiding an unjustified identification of all f
 
 VeriLogos is compatible with computational representations that preserve the structure of simplicial and relational data.
 
- relational data.
 
 Possible representations include:
 
@@ -540,7 +538,7 @@ Possible applications include:
 
 ### Knowledge Representation
 
-Representing structured knowledge as relational and relational and higher-order geometric objects.
+Representing structured knowledge as relational and higher-order geometric objects.
 
 ### Intuitionistic Reasoning
 
