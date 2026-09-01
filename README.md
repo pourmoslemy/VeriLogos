@@ -1,327 +1,197 @@
 # VeriLogos
 
-**Topological Market Regime Detection and Verification Framework**
+## A Computational Framework for Simplicial Complex Logic and Geometric Truth
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-0.1.0-green.svg)](https://github.com/pourmoslemy/VeriLogos)
+VeriLogos is a research software framework for the computational representation and analysis of **Simplicial Complex Logic (SC-Logic)**.
 
-VeriLogos is a research‑oriented Python framework for modeling **structural dynamics and verification** using ideas from **topology**, **geometric logic**, **temporal filtrations**, and **persistent homology**.
+SC-Logic is a geometric and topological approach to logic in which logical forms and truth structures are represented by simplicial complexes, subcomplexes, and their relations. In this framework, truth is not treated only as a pointwise value such as `true` or `false`; it is represented through structured geometric configurations, dimensions, inclusions, and topological stability.
 
-Instead of representing system states as simple numerical labels, VeriLogos models them as **geometric structures**, enabling the study of how relationships between elements form, persist, evolve, or collapse over time.
+VeriLogos provides a computational environment for experimenting with these structures and for connecting the formal theory of SC-Logic with algorithmic representations, matrix models, temporal filtrations, and structural reasoning.
 
-The framework was originally extracted from the broader SANN architecture but is now a standalone, modular system focused on **structural modeling and reasoning**.  
-The current applied focus is **topological market regime detection**, but the architecture is intentionally general and can be extended to other structural‑reasoning tasks.
+> VeriLogos is an implementation and experimentation framework for SC-Logic. It is not itself a replacement for the mathematical definitions, proofs, or formal results of the associated theory.
 
 ---
 
-## Table of Contents
+## Core Ideas
 
-- Overview
-- Why VeriLogos
-- Core Idea
-- Key Features
-- Architecture
-- Project Structure
-- Installation
-- Quick Start
-- Example Workflow
-- Testing
-- Research Motivation
-- Roadmap
-- Contributing
-- License
-- Author
-- Citation
+The theoretical foundation of VeriLogos includes:
 
----
+- Simplicial Complex Logic;
+- geometric and topological representations of truth;
+- simplicial complexes and closed subcomplexes;
+- intuitionistic and Heyting-algebraic semantics;
+- temporal filtrations;
+- structural and topological persistence;
+- matrix representations of simplicial structures;
+- spatial and modal reasoning.
 
-## Overview
+For a simplicial complex \(K\), the collection of its subcomplexes,
 
-Most analytical or machine‑learning models describe a system state using a **single scalar output**, such as:
+\[
+\mathrm{Sub}(K),
+\]
 
-- bullish / bearish  
-- anomaly / normal  
-- true / false  
+provides the underlying algebraic structure for intuitionistic reasoning and forms a complete Heyting algebra.
 
-Such representations discard the **structure of relationships** that underlie the system.
-
-VeriLogos provides an alternative:  
-it represents system states as **topological objects**, preserving and analyzing the relationships between components.
-
-This perspective enables:
-
-- representation of relational structure  
-- detection of persistent patterns  
-- study of structural evolution through time  
-- logical reasoning over geometric states  
+In this setting, logical information is represented by geometric structure. Relations among vertices, edges, faces, and higher-dimensional simplices contribute to the interpretation of a logical state.
 
 ---
 
-## Why VeriLogos
+## Geometric Truth
 
-Many real‑world systems are **relational** and **dynamic**. Their behavior is determined not only by values but by **relationships**.
+VeriLogos is based on the idea that truth may be studied as a structured geometric configuration rather than as an isolated binary value.
 
-VeriLogos captures these relationships using:
+A logical state can be represented by a subcomplex of a larger simplicial complex. Its stability can then be examined through:
 
-- **Simplicial complexes**  
-- **Subcomplex structures**  
-- **Temporal filtrations**  
-- **Persistent homology**  
-- **Geometric logic operations**  
+- inclusion relations;
+- closure under faces;
+- structural transformations;
+- temporal filtrations;
+- persistence of topological features.
 
-This allows us to analyze structural questions such as:
-
-- Which patterns persist across time or scale?
-- Which structural transitions mark regime shifts?
-- Which relationships remain stable even as data changes?
+This provides a framework for studying how logical structures emerge, change, and remain stable across an ordered sequence of states.
 
 ---
 
-## Core Idea
+## Computational Representation
 
-VeriLogos is based on the hypothesis that complex systems can be more effectively understood as **geometric structures of relations** rather than flat vectors.
+Simplicial and relational structures can be represented computationally through data structures such as:
 
-Instead of asking:
+- simplex collections;
+- subcomplexes;
+- incidence matrices;
+- adjacency matrices;
+- boundary representations;
+- filtration sequences;
+- topological invariants.
 
-> “What label should be predicted?”
-
-The system investigates:
-
-- What geometric configuration represents the current state?
-- Which structures persist across scales?
-- Which structural transformations preserve or violate logical properties?
-
-This approach is useful when:
-
-- relationships matter more than individual datapoints  
-- systems evolve over time  
-- interpretability and structure are valuable  
+These representations make it possible to implement and test operations over geometric logical states while preserving the distinction between the formal theory and its software realization.
 
 ---
 
-## Key Features
+## Main Components
 
-### Topological Foundations
-- Construction of simplicial complexes  
-- Subcomplex representation  
-- Face‑closure validation  
-- Dimension tracking  
-- Set‑theoretic operations  
+### Simplicial Structures
 
-### Geometric Logic
-- Logical reasoning on geometric structures  
-- Timeless, deterministic evaluation  
-- Entailment‑style outcomes (`explicit`, `inferable`, `not_entailed`)  
+Representation and validation of:
 
-### Temporal Semantics
-- Filtration sequences  
-- Structural evolution over time  
-- Dynamic valuation mechanisms  
+- simplices;
+- simplicial complexes;
+- subcomplexes;
+- faces and boundaries;
+- inclusion relations;
+- closed structures.
 
-### Persistent Homology
-- Interfaces for persistence computation  
-- Betti number extraction  
-- Barcode / interval output  
-- Multi‑scale feature detection  
+### SC-Logic Operations
 
-### Application Layer
-- Market monitoring utilities  
-- Structural alerting  
-- Backtesting tools  
-- Example scripts and test suite  
+Computational operations over geometric logical states, including:
 
----
+- structural conjunction and disjunction;
+- inclusion and containment;
+- geometric entailment;
+- comparison of subcomplexes;
+- evaluation of logical relations.
 
-## Architecture
+Operations are defined over valid simplicial structures and, where required, closed subcomplexes.
 
-VeriLogos follows a clear **layered architecture**:
+### Temporal and Filtration Semantics
 
-```
-Layer 3 — Modal Semantics
-Layer 2 — Temporal Semantics
-Layer 1 — Geometric Logic
-Layer 0 — Topology
-```
+Representation of ordered sequences of complexes:
 
-### Layer 0 — Topology
-Responsible for:
-- simplicial complexes  
-- face‑closure  
-- dimension analysis  
-- set operations  
+\[
+K_0 \subseteq K_1 \subseteq \cdots \subseteq K_n.
+\]
 
-No temporal or modal reasoning happens here.
+Filtrations may be used to study the appearance, disappearance, and persistence of logical or topological structures across time, scale, or another ordered parameter.
 
-### Layer 1 — Geometric Logic
-Provides:
-- deterministic structural reasoning  
-- timeless evaluation  
-- entailment‑style logic  
+### Topological and Structural Analysis
 
-### Layer 2 — Temporal Semantics
-Adds:
-- filtrations  
-- structural evolution  
-- dynamic logical evaluation  
+Analysis of structural features using concepts such as:
 
-### Layer 3 — Modal Semantics
-Provides:
-- higher‑level reasoning  
-- structural verification APIs  
-- orchestration across layers  
+- connected components;
+- Betti numbers;
+- persistence intervals;
+- persistent homology;
+- structural stability;
+- topological transitions.
+
+### Matrix-Based Models
+
+Incidence and adjacency matrices provide computational representations for simplicial relations and support algorithmic processing, visualization, and integration with topology-aware computational systems.
 
 ---
 
-## Project Structure
+## Applications
 
-```
-VeriLogos/
-│
-├── docs/
-├── examples/
-├── scripts/
-├── tests/
-│
-├── verilogos/
-│   ├── core/
-│   ├── topology/
-│   ├── logic/
-│   ├── persistence/
-│   ├── reasoning/
-│   └── application/
-│
-├── ARCHITECTURE.md
-├── API_MAPS.md
-├── pyproject.toml
-├── requirements.txt
-└── README.md
-```
+VeriLogos is designed as a general framework for logical and structural computation. Possible application areas include:
+
+- geometric and intuitionistic logic;
+- structural knowledge representation;
+- temporal reasoning;
+- verification of evolving relational systems;
+- topology-aware artificial intelligence;
+- anomaly and transition detection;
+- network and higher-order interaction analysis;
+- financial market regime analysis.
+
+Market analysis is one possible application of the framework. It does not define the identity or theoretical scope of VeriLogos, and any empirical claim about prediction, accuracy, or profitability requires separate experimental validation.
 
 ---
 
-## Installation
+## Mathematical Theory and Software
 
-Clone the repository:
+The following must be kept conceptually distinct:
 
-```bash
-git clone https://github.com/pourmoslemy/VeriLogos.git
-cd VeriLogos
-```
+### Formal theory
 
-Install in development mode:
+Definitions, propositions, theorems, semantics, and mathematical proofs concerning SC-Logic, simplicial complexes, Heyting algebras, filtrations, and modal or topological operators.
 
-```bash
-pip install -e .
-```
+### Software implementation
 
----
+Data structures, algorithms, matrix representations, computational procedures, and tests implemented in VeriLogos.
 
-## Quick Start
+### Empirical applications
 
-Run tests to verify installation:
+Experiments that apply the framework to datasets or domain-specific problems.
 
-```bash
-pytest tests/ -v
-```
-
-Basic imports:
-
-```python
-from verilogos.core import SimplicialComplex
-from verilogos.core import Subcomplex
-from verilogos.core import TemporalFiltration
-from verilogos.persistence import PersistenceEngine
-```
+Successful software tests do not constitute mathematical proofs, and a mathematical result does not by itself establish the predictive performance of an application.
 
 ---
 
-## Example Workflow
+## Research Status
 
-Typical workflow:
+VeriLogos is research software developed as a computational framework for SC-Logic and geometric truth.
 
-1. Build a **simplicial complex** from relational data  
-2. Construct a **temporal filtration** over time  
-3. Compute **persistent homology**  
-4. Extract topological features  
-5. Perform geometric or logical reasoning  
+The repository is intended to support:
 
----
+- formal experimentation;
+- computational demonstrations;
+- algorithm development;
+- structural visualization;
+- reproducible research;
+- future applications of simplicial-complex reasoning.
 
-## Testing
-
-Run the full suite:
-
-```bash
-pytest tests/ -v
-```
-
-Verbose:
-
-```bash
-pytest tests/ -vv
-```
-
----
-
-## Research Motivation
-
-VeriLogos explores the idea that **truth structures and system states can be represented geometrically**.
-
-Research directions include:
-
-- topological AI  
-- geometric logic  
-- structural reasoning  
-- topology‑driven explainable ML  
-
----
-
-## Roadmap
-
-Planned additions:
-
-- visualization tools (complexes, filtrations, diagrams)  
-- persistence diagrams and Betti curves  
-- expanded datasets  
-- structural reasoning benchmarks  
-
----
-
-## Contributing
-
-Contributions are welcome.
-
-Possible areas:
-
-- topology algorithms  
-- reasoning engines  
-- visualization  
-- documentation  
-
----
-
-## License
-
-MIT License
-
----
-
-## Author
-
-**Alireza Pourmoslemi**  
-Email: `apmath99@gmail.com`
+The implementation and API may evolve as the mathematical theory and computational architecture develop.
 
 ---
 
 ## Citation
 
-If you use this framework in research:
-
+If you use VeriLogos in academic research, please cite the repository and the associated publications on Simplicial Complex Logic and geometric truth.
 ```bibtex
-@software{pourmoslemi_verilogos_2026,
+@software{pourmoslemi_verilogos,
   author = {Pourmoslemi, Alireza},
-  title = {VeriLogos: Topological Market Regime Detection Framework},
-  year = {2026},
-  license = {MIT}
+  title  = {VeriLogos: A Computational Framework for Simplicial Complex Logic and Geometric Truth},
+  year   = {2026},
+  url    = {https://github.com/pourmoslemy/VeriLogos}
 }
+
+---
+
+## Author
+
+**Alireza Pourmoslemi**
+
+Assistant Professor of Mathematics
+
+GitHub: [https://github.com/pourmoslemy/VeriLogos](https://github.com/pourmoslemy/VeriLogos)
