@@ -1,29 +1,24 @@
 # VeriLogos
 
-## A Topological Knowledge Engine for Simplicial Complex Logic 
-VeriLogos is a research-oriented computational framework for representing and analyzing logical knowledge through simplicial complexes.
+## A Topological Knowledge Engine for Simplicial Complex Logic
 
-The project is based on **Simplicial Complex Logic (SC-Logic)**: a geometric approach to logical representation in which propositions, truth states, relations, and evolving information structures are modeled through simplices, subcomplexes, inclusions, and topological transformations.
+VeriLogos is a research-oriented computational framework for representing, transforming, and analyzing logical knowledge through simplicial complexes.
 
-VeriLogos is designed to connect three domains:
+It is built around **Simplicial Complex Logic (SC-Logic)**, a geometric approach to logic in which propositions, truth states, relations, and evolving information structures are modeled through simplices, subcomplexes, inclusions, filtrations, and topological transformations.
 
-\[
-\text{Formal Logic}
-\quad\longleftrightarrow\quad
-\text{Topological Computation}
-\quad\longleftrightarrow\quad
-\text{Applied Structural Reasoning}
-\]
+VeriLogos connects three levels of work:
 
-The system is not defined by a single application. Its central purpose is to provide a computational architecture for experimenting with geometric truth, intuitionistic semantics, temporal knowledge, persistence, and higher-order relational structures.
+- formal logic,
+- topological computation,
+- applied structural reasoning.
+
+The project is not defined by a single application. Its purpose is to provide a computational architecture for experimenting with geometric truth, intuitionistic semantics, temporal knowledge, persistence, and higher-order relational structures.
 
 ---
 
-##---
-
 ## Table of Contents
 
-- [Conceptual Overview](#conceptual)
+- [Conceptual Overview](#conceptual-overview)
 - [What Is SC-Logic?](#what-is-sc-logic)
 - [Geometric Truth](#geometric-truth)
 - [System Architecture](#system-architecture)
@@ -35,8 +30,8 @@ The system is not defined by a single application. Its central purpose is to pro
 - [Data Flow](#data-flow)
 - [Formal Foundations](#formal-foundations)
 - [Computational Representations](#computational-representations)
-- [Applications](#applications)
 - [Theory, Engine, and Evidence](#theory-engine-and-evidence)
+- [Applications](#applications)
 - [Research Status](#research-status)
 - [Repository Organization](#repository-organization)
 - [Citation](#citation)
@@ -48,32 +43,33 @@ The system is not defined by a single application. Its central purpose is to pro
 
 Classical computational systems often represent knowledge as isolated symbols, binary labels, or pointwise truth values.
 
-VeriLogos uses a different representation. A proposition or knowledge state may be encoded as a geometric object inside a simplicial complex. Its meaning is then determined not only by whether a single element is present, but also by:
+VeriLogos uses a different representation.
 
-- the relations among its elements;
-- the faces that must be preserved;
-- its position inside a larger complex;
-- its inclusion relationships with other states;
-- its behavior under temporal evolution;
+A proposition or knowledge state may be encoded as a geometric object inside a simplicial complex. Its meaning is determined not only by the presence of a single element, but also by:
+
+- the relations among its elements,
+- the faces that must be preserved,
+- its position inside a larger complex,
+- its inclusion relations with other states,
+- its behavior under temporal evolution,
 - the persistence or disappearance of its structural features.
 
-This leads to a computational model in which logical reasoning isK\) consists of information.
+This leads to a computational model in which logical reasoning is treated as structural reasoning.
 
 ---
 
 ## What Is SC-Logic?
 
-A simplicial complex \(K\) consists of simplices together with all of their faces. Depending on the dimension, these may include:
+A simplicial complex `K` consists of simplices together with all of their faces. Depending on dimension, these may include:
 
-- vertices;
-- edges;
-- triangles;
-- tetrahedra;
+- vertices,
+- edges,
+- trianglesra- tetrahedra,
 - higher-dimensional simplices.
 
 SC-Logic uses these structures as logical carriers.
 
-A logical state can be represented by a subcomplex \(A \subseteq K\). Logical relations can then be studied through operations on subcomplexes, inclusion, closure, intersection, union, and transformations of the underlying complex.
+A logical state can be represented by a subcomplex `A ⊆ K`. Logical relations can then be studied through operations on subcomplexes, inclusion, closure, intersection, union, and transformations of the underlying complex.
 
 The central principle is:
 
@@ -89,41 +85,46 @@ In VeriLogos, truth is interpreted structurally.
 
 A geometric truth state is not merely a Boolean value. It is a valid configuration within a simplicial complex that satisfies the relevant closure and structural conditions.
 
-For a subcomplex \(A\) of \(K\), its interpretation may depend on:
+For a subcomplex `A` of `K`, its interpretation may depend on:
 
-- whether \(A\) is closed under taking faces;
-- how \(A\) is included in \(K\);
-- how \(A\) relates to another subcomplex \(B\);
-- whether its structure persists through a filtration;
+- whether `A` is closed under taking faces,
+- how `A` is included in `K`,
+- how `A` relates to another subcomplex `B`,
+- whether its structure persists through a filtration,
 - whether it remains stable under a permitted transformation.
 
 This perspective supports the study of truth as:
 
-- local structure;
-- relational structure;
-- spatial structure;
-- temporal structure;
+- local structure,
+- relational structure,
+- spatial structure,
+- temporal structure,
 - persistent structure.
 
 The software therefore treats topology as part of the semantics, not merely as a visualization layer.
 
 ---
 
-# System Architecture
+## System Architecture
 
 VeriLogos is organized as a five-layer computational architecture.
-```mermaid
-flowchart TB
-L4["Layer 4<br/>Application Layer<br/>Domain-specific analysis and decision support"]
-L3["Layer 3<br/>Persistence & Structural Reasoning<br/>Feature extraction, stability, and inference"]
-L2["Layer 2<br/>Temporal Semantics<br/>Filtrations, evolving complexes, and state transitions"]
-L1["Layer 1<br/>SC-Logic Operations<br/>Logical operations over closed subcomplexes"]
-L0["Layer 0<br/>Topology Foundation<br/>Simplicial complexes, faces, boundaries, and closure"]
-
-L4 --> L3
-L3 --> L2
-L2 --> L1
-L1 --> L0
+```text
++--------------------------------------------------------------+
+| Layer 4: Application Layer                                   |
+| Domain-specific analysis and decision support                |
++--------------------------------------------------------------+
+| Layer 3: Persistence & Structural Reasoning                  |
+| Feature extraction, stability, inference                     |
++--------------------------------------------------------------+
+| Layer 2: Temporal Semantics                                  |
+| Filtrations, evolving complexes, state transitions           |
++--------------------------------------------------------------+
+| Layer 1: SC-Logic Operations                                 |
+| Logical operations over closed subcomplexes                  |
++--------------------------------------------------------------+
+| Layer 0: Topology Foundation                                 |
+| Simplicial complexes, faces, boundaries, closure             |
++--------------------------------------------------------------+
 
 Each layer has a distinct responsibility:
 
@@ -145,14 +146,14 @@ The topology foundation is the lowest-level layer of VeriLogos.
 
 It provides the basic structures required by all higher layers:
 
-- vertices;
-- simplices;
-- faces;
-- boundaries;
-- simplicial complexes;
-- subcomplexes;
-- inclusion relations;
-- closure operations;
+- vertices,
+- simplices,
+- faces,
+- boundaries,
+- simplicial complexes,
+- subcomplexes,
+- inclusion relations,
+- closure operations,
 - incidence relations.
 
 A valid simplicial complex must contain every face of each simplex that it contains. This condition is essential because the logical operations of higher layers depend on the validity of the underlying geometric structure.
@@ -172,13 +173,17 @@ Layer 0 is responsible for:
 
 VeriLogos restricts logical operations to valid closed subcomplexes whenever required by the formal semantics.
 
-This restriction is important because arbitrary collections of simplices may fail to represent a coherent simplicial object. Closure ensures that logical transformations remain inside the admissible topological space Layer 1: SC-Logic Operations
+This restriction is important because arbitrary collections of simplices may fail to represent a coherent simplicial object. Closure ensures that logical transformations remain inside the admissible topological space.
+
+---
+
+## Layer 1: SC-Logic Operations
 
 Layer 1 implements logical operations over the geometric structures provided by Layer 0.
 
-The basic semantic universe is the collection of subcomplexes of a simplicial complex \(K\):
+The basic semantic universe is the collection of subcomplexes of a simplicial complex `K`:
 
-\[ \mathrm{Sub}(K). \]
+`Sub(K)`
 
 This collection supports an intuitionistic and Heyting-algebraic interpretation of logical operations.
 
@@ -186,21 +191,20 @@ This collection supports an intuitionistic and Heyting-algebraic interpretation 
 
 Depending on the selected semantics, Layer 1 may provide:
 
-- meet operations;
-- join operations;
-- geometric conjunction;
-- geometric disjunction;
-- inclusion testing;
-- structural entailment;
-- implication between subcomplexes;
-- equivalence testing;
+- meet operations,
+- join operations,
+- geometric conjunction,
+- geometric disjunction,
+- inclusion testing,
+- structural entailment,
+- implication between subcomplexes,
+- equivalence testing,
 - closure-preserving transformations.
 
 The basic lattice operations are represented by:
 
-\[ A \wedge B = A \cap B, \]
-
-\[ A \vee B = A \cup B, \]
+- `A ∧ B = A ∩ B`
+- `A ∨ B = A ∪ B`
 
 with implication defined through the appropriate Heyting-algebraic or closure-based construction.
 
@@ -210,12 +214,14 @@ The precise implementation must preserve the mathematical semantics of the selec
 
 At this layer:
 
-- a proposition may correspond to a subcomplex;
-- logical strength may correspond to inclusion;
-- entailment may correspond to a structural relation;
-- conjunction may correspond to common structure;
-- disjunction may correspond to generated combined structure;
-- implication may be evaluated relative to the ambient. This layer is the logical core of VeriLogos.
+- a proposition may correspond to a subcomplex,
+- logical strength may correspond to inclusion,
+- entailment may correspond to a structural relation,
+- conjunction may correspond to common structure,
+- disjunction may correspond to generated combined structure,
+- implication may be evaluated relative to the ambient complex.
+
+This layer is the logical core of VeriLogos.
 
 ---
 
@@ -225,20 +231,20 @@ Layer 2 models the evolution of information through ordered states.
 
 A temporal or informational process may be represented by a filtration:
 
-\[ K_0 \subseteq K_1 \subseteq \cdots \subseteq K_n. \]
+`K0 ⊆ K1 ⊆ ... ⊆ Kn`
 
-Each \(K_i\) represents a stage of available information, an observation state, a scale, or a time-indexed geometric configuration.
+Each `Ki` represents a stage of available information, an observation state, a scale, or a time-indexed geometric configuration.
 
 ### Responsibilities
 
 Layer 2 provides mechanisms for:
 
-- constructing filtrations;
-- comparing successive states;
-- tracking the appearance of simplices;
-- tracking the growth of subcomplexes;
-- evaluating monotonicity;
-- representing evolving knowledge;
+- constructing filtrations,
+- comparing successive states,
+- tracking the appearance of simplices,
+- tracking the growth of subcomplexes,
+- evaluating monotonicity,
+- representing evolving knowledge,
 - detecting structural transitions.
 
 The central semantic idea is that information may grow monotonically. A proposition that is supported at one stage can remain supported at later stages, subject to the formal conditions of the chosen semantics.
@@ -249,28 +255,28 @@ Filtrations provide a geometric interpretation of ordered semantic stages.
 
 The inclusion relation
 
-\[ K_i \subseteq K_j \]
+`Ki ⊆ Kj`
 
-can be interpreted as an information-growth relation between stages \(i\) and \(j\).
+can be interpreted as an information-growth relation between stages `i` and `j`.
 
 In this interpretation:
 
-- stages act as semantic worlds;
-- inclusion acts as accessibility or information extension;
-- subcomplexes represent propositions;
+- stages act as semantic worlds,
+- inclusion acts as accessibility or information extension,
+- subcomplexes represent propositions,
 - persistence under extension expresses monotonicity.
 
 This creates a bridge between simplicial structures and intuitionistic or Kripke-style semantics.
 
 ### Modal and Spatial Semantics
 
-Purely stage-based semantics may not express every form of spatial stability. The associated theoretical work therefore examines the role of spatial or modal operators such as \(\Box\).
+Purely stage-based semantics may not express every form of spatial stability. The associated theoretical work therefore examines the role of spatial or modal operators such as `□`.
 
 A modal operator can be used to express properties such as:
 
-- stability throughout a neighborhood;
-- invariance under admissible extensions;
-- local spatial necessity;
+- stability throughout a neighborhood,
+- invariance under admissible extensions,
+- local spatial necessity,
 - persistence across a designated accessibility relation.
 
 VeriLogos keeps these semantic distinctions explicit so that temporal persistence is not confused with spatial necessity.
@@ -287,14 +293,14 @@ It operates on the complexes and filtrations produced by the lower layers and ex
 
 Layer 3 may include:
 
-- connected-component analysis;
-- dimensional analysis;
-- Betti-number computation;
-- persistence summaries;
-- structural change detection;
-- topological feature extraction;
-- stability analysis;
-- comparison of logical states;
+- connected-component analysis,
+- dimensional analysis,
+- Betti-number computation,
+- persistence summaries,
+- structural change detection,
+- topological feature extraction,
+- stability analysis,
+- comparison of logical states,
 - higher-order relation analysis.
 
 The purpose of this layer is not simply to calculate topological quantities. It is to connect those quantities to logical and semantic questions.
@@ -305,11 +311,11 @@ For example, a persistent feature may indicate that a structural relation remain
 
 Structural reasoning in VeriLogos can be understood as reasoning over:
 
-- what is present;
-- what is included;
-- what is preserved;
-- what changes;
-- what persists;
+- what is present,
+- what is included,
+- what is preserved,
+- what changes,
+- what persists,
 - what becomes possible after an information update.
 
 This creates a computational basis for topology-aware knowledge analysis.
@@ -324,15 +330,15 @@ The application layer must not redefine the underlying theory. Instead, it maps 
 
 Potential application areas include:
 
-- knowledge representation;
-- structural artificial intelligence;
-- temporal reasoning;
-- anomaly detection;
-- evolving network analysis;
-- higher-order interaction analysis;
-- spatial reasoning;
-- verification of relational systems;
-- decision intelligence;
+- knowledge representation,
+- structural artificial intelligence,
+- temporal reasoning,
+- anomaly detection,
+- evolving network analysis,
+- higher-order interaction analysis,
+- spatial reasoning,
+- verification of relational systems,
+- decision intelligence,
 - financial market regime analysis.
 
 ### Market Analysis as an Application
@@ -341,141 +347,127 @@ Financial market analysis is one possible application of VeriLogos.
 
 Market observations may be mapped into geometric structures, temporal filtrations, and structural features. The application layer can then be used to investigate:
 
-- regime transitions;
-- persistence of market structures;
-- changes in higher-order dependencies;
-- structural anomalies;
+- regime transitions,
+- persistence of market structures,
+- changes in higher-order dependencies,
+- structural anomalies,
 - topology-aware decision signals.
 
 However, market analysis is an empirical application of the framework. It does not constitute the mathematical foundation of VeriLogos, and software outputs must not be interpreted as guarantees of prediction, profitability, or investment performance.
 
 ---
 
-# Data Flow
+## Data Flow
 
 A typical VeriLogos pipeline follows this sequence:
 
-mermaid
-flowchart LR
-D["Input Data<br/>Observations, relations, events"]
-C["Complex Construction<br/>Build simplices and complexes"]
-V["Validation<br/>Check face closure and invariants"]
-O["SC-Logic Operations<br/>Evaluate geometric relations"]
-F["Filtration<br/>Organize evolving states"]
-P["Persistence Analysis<br/>Extract stable features"]
-R["Structural Reasoning<br/>Interpret transitions and relations"]
-A["Application Output<br/>Domain-specific result"]
-
-D --> C
-C --> V
-V --> O
-O --> F
-F --> P
-P --> R
-R --> A
+text
+Input Data
+  -> Complex Construction
+  -> Validation
+  -> SC-Logic Operations
+  -> Filtration
+  -> Persistence Analysis
+  -> Structural Reasoning
+  -> Application Output
 
 The pipeline separates the following concerns:
 
-1. **Data encoding:** converting observations into relational or simplicial structures.
-2. **Topological validation:** ensuring that the representation is mathematically admissible.
-3. **Logical computation:** applying SC-Logic operations.
-4. **Temporal organization:** constructing ordered states or filtrations.
-5. **Persistence analysis:** measuring structural continuity and change.
-6. **Application interpretation:** mapping results to a domain-specific task.
+1. Data encoding: converting observations into relational or simplicial structures.
+2. Topological validation: ensuring that the representation is mathematically admissible.
+3. Logical computation: applying SC-Logic operations.
+4. Temporal organization: constructing ordered states or filtrations.
+5. Persistence analysis: measuring structural continuity and change.
+6. Application interpretation: mapping results to a domain-specific task.
 
 ---
 
-# Formal Foundations
+## Formal Foundations
 
 The theoretical design of VeriLogos is based on the following ideas.
 
-## Simplicial Complexes
+### Simplicial Complexes
 
-A simplicial complex \(K\) is a family of finite sets closed under taking subsets. If a simplex belongs to \(K\), all of its faces must also belong to \(K\).
+A simplicial complex `K` is a family of finite sets closed under taking subsets. If a simplex belongs to `K`, all of its faces must also belong to `K`.
 
 This closure condition provides the basic geometric invariant used throughout the system.
 
-## Subcomplex Semantics
+### Subcomplex Semantics
 
-For a complex \(K\), the set
+For a complex `K`, the set `Sub(K)` contains its subcomplexes and provides the semantic domain for geometric propositions.
 
-\[ \mathrm{Sub}(K) \]
+Logical states are therefore represented as structured subobjects of `K`, rather than as unrelated labels.
 
-contains its subcomplexes and provides the semantic domain for geometric propositions.
+### Heyting-Algebraic Structure
 
-Logical states are therefore represented as structured subobjects of \(K\), rather than as unrelated labels.
-
-## Heyting-Algebraic Structure
-
-The ordered set \(\mathrm{Sub}(K)\), under inclusion, supports a complete Heyting-algebraic interpretation.
+The ordered set `Sub(K)`, under inclusion, supports a complete Heyting-algebraic interpretation.
 
 The fundamental operations are associated with:
 
-- intersection as meet;
-- union or generated union as join;
-- closure-relative implication;
+- intersection as meet,
+- union or generated union as join,
+- closure-relative implication,
 - inclusion as an ordering relation.
 
 This allows SC-Logic to express intuitionistic forms of reasoning in a geometric setting.
 
-## Filtrations
+### Filtrations
 
 A filtration is an increasing sequence of complexes:
 
-\[ K_0 \subseteq K_1 \subseteq \cdots \subseteq K_n. \]
+`K0 ⊆ K1 ⊆ ... ⊆ Kn`
 
 Filtrations model the growth of information and provide the basis for temporal and persistence-oriented computation.
 
-## Persistence
+### Persistence
 
 A logical or topological feature is persistent when it remains supported across a selected range of filtration stages.
 
 Persistence can therefore be used as a computational criterion for structural stability, but its interpretation depends on the mathematical semantics and application domain.
 
-## Spatial Necessity
+### Spatial Necessity
 
 Temporal persistence and spatial necessity are distinct concepts.
 
-A filtration expresses ordered information growth. A modal or spatial operator such as \(\Box\) expresses stability under an accessibility or neighborhood relation.
+A filtration expresses ordered information growth. A modal or spatial operator such as `□` expresses stability under an accessibility or neighborhood relation.
 
 The distinction is important for avoiding an unjustified identification of all forms of persistence with necessity.
 
 ---
 
-# Computational Representations
+## Computational Representations
 
 VeriLogos is compatible with computational representations that preserve the structure of simplicial and relational data.
 
-
 Possible representations include:
 
-## Simplex Collections
+### Simplex Collections
 
 A complex may be represented as simplices together with its face relations.
 
-## Incidence Matrices
+### Incidence Matrices
 
 Incidence matrices encode relationships between simplices of adjacent dimensions and support:
 
-- boundary computation;
-- structural validation;
-- algebraic-topological operations;
+- boundary computation,
+- structural validation,
+- algebraic-topological operations,
 - sparse computation.
 
-## Adjacency Matrices
+### Adjacency Matrices
 
 Adjacency matrices encode pairwise or derived relations and may be used for:
 
-- graph projections;
-- neighborhood analysis;
-- transition computation;
+- graph projections,
+- neighborhood analysis,
+- transition computation,
 - application-specific feature extraction.
 
-## Filtration Tables
+### Filtration Tables
 
-A filtration can be represented as anes, of states, where each row corresponds to a stage and records the simplices, subcomplexes, or features present at that stage.
+A filtration can be represented as an ordered sequence of states, where each row corresponds to a stage and records the simplices, subcomplexes, or features present at that stage.
 
-## Persistent Feature Records
+### Persistent Feature Records
 
 Persistent structures can be represented by intervals, summaries, or structured feature objects linked to their originating simplices and filtration stages.
 
@@ -483,54 +475,55 @@ The computational representation should remain traceable to the underlying geome
 
 ---
 
-# Theory, Engine, and Evidence
+## Theory, Engine, and Evidence
 
 VeriLogos has three distinct levels of meaning.
 
-## 1. Formal Theory
+### 1. Formal Theory
 
 The formal theory includes:
 
-- definitions;
-- semantic interpretations;
-- propositions;
-- theorems;
-- algebraic structures;
-- topological constructions;
+- definitions,
+- semantic interpretations,
+- propositions,
+- theorems,
+- algebraic structures,
+- topological constructions,
 - proofs and formal limitations.
 
 The theory is developed in the associated mathematical papers.
 
-## 2. Computational Engine
+### 2. Computational Engine
 
 The VeriLogos engine includes:
 
-- data structures;
-- validation procedures;
-- logical operations;
-- filtration processing;
-- persistence analysis;
-- matrix-based computation;
+- data structures,
+- validation procedures,
+- logical operations,
+- filtration processing,
+- persistence analysis,
+- matrix-based computation,
 - visual and diagnostic tools.
 
 The engine provides an executable representation of selected theoretical constructions.
 
-## 3. Empirical Applications
+### 3. Empirical Applications
 
 Applications use the engine with domain-specific data.
 
-An application result is not automatically a theorem. Likewise:
+An application result is performance guarantee,
+- a Likewise:
 
-- a passing software test is not a mathematical proof;
-- a mathematical proposition is not an empirical performance guarantee;
-- a visualization is not, by itself, a semantic interpretation;
+- a passing software test is not a mathematical proof,
+- a mathematical proposition is not an empirical performance guarantee,
+- a visualization is not, by itself, a semantic interpretation,
 - an observed correlation does not establish causal or logical entailment.
 
 This separation is a core design principle of the project.
 
 ---
 
-# Applications
+## Applications
 
 VeriLogos is intended as a general-purpose research framework for topology-aware reasoning.
 
@@ -542,7 +535,7 @@ Representing structured knowledge as relational and higher-order geometric objec
 
 ### Intuitionistic Reasoning
 
-Studying logical consequence information, monotone information growth, and Heyting-algebraic semantics.
+Studying logical consequence, monotone information growth, and Heyting-algebraic semantics.
 
 ### Temporal Knowledge
 
@@ -568,18 +561,18 @@ The application layer is intentionally open-ended. New domains can be integrated
 
 ---
 
-# Research Status
+## Research Status
 
 VeriLogos is research software.
 
 The project is being developed alongside the theoretical study of:
 
-- Simplicial Complex Logic;
-- geometric truth;
-- intuitionistic semantics;
-- Heyting algebras of subcomplexes;
-- filtration and Kripke-style semantics;
-- modal and spatial stability;
+- Simplicial Complex Logic,
+- geometric truth,
+- intuitionistic semantics,
+- Heyting algebras of subcomplexes,
+- filtration and Kripke-style semantics,
+- modal and spatial stability,
 - persistence-based structural reasoning.
 
 The mathematical theory and software implementation should be understood as related but distinct components of an ongoing research program.
@@ -588,7 +581,7 @@ The API, algorithms, and internal representations may evolve as the formal theor
 
 ---
 
-# Repository Organization
+## Repository Organization
 
 The repository is conceptually organized around the five-layer architecture:
 
@@ -608,7 +601,7 @@ This layout reflects the conceptual architecture. The concrete directory names m
 
 ---
 
-# Design Principles
+## Design Principles
 
 VeriLogos follows these principles:
 
@@ -638,24 +631,7 @@ The framework should distinguish formal proof, computational verification, visua
 
 ---
 
-# Theoretical Sources
-
-The Theoretical Sources
-
-The formal ideas represented by this project are developed in the associated research manuscripts:
-
- Final-(2).tex`
-- `paper2-(55)-(10).tex`
-
-The first manuscript develops the geometric interpretation of truth, simplicial structures, and computational matrix representations.
-
-The second manuscript develops the logical and semantic framework involving subcomplexes, Heyting-algebraic operations, filtrations, Kripke-style information growth, and the role of spatial or modal operators.
-
-The papers provide the mathematical foundation. VeriLogos provides the software architecture for computational experimentation and application.
-
----
-
-# Citation
+## Citation
 
 If you use VeriLogos in academic work, please cite the repository and the associated publications.
 
@@ -671,7 +647,7 @@ A publication-specific citation should be used when referring to a particular th
 
 ---
 
-# Author
+## Author
 
 **Alireza Pourmoslemi**
 
@@ -679,20 +655,24 @@ Assistant Professor of Mathematics
 
 Research interests:
 
-- Simplicial Complex Logic;
-- geometric truth;
-- topological reasoning;
-- intuitionistic semantics;
-- decision intelligence;
-- neuro-cognitive modeling;
+- Simplicial Complex Logic,
+- geometric truth,
+- topological reasoning,
+- intuitionistic semantics,
+- decision intelligence,
+- neuro-cognitive modeling,
 - topology-aware artificial intelligence.
 
 Repository:
 
-[github.com/pourmoslemy/VeriLogos](https://github.com/pourmoslemy/VeriLogos)
+https://github.com/pourmoslemy/VeriLogos
 
 ---
 
 ## License
 
 See the repository license for terms of use.
+  
+5. **تبدیل آن به README آکادمیک-Developer style واقعی** با لحن دقیق‌تر و مینیمال‌تر  
+
+اگر بخواهی، در پیام بعدی یک **نسخه نهایی GitHub-grade** هم می‌دهم که از همین حالا قابل قرار دادن در repo باشد.
