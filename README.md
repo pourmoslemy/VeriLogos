@@ -1,6 +1,7 @@
 # VeriLogos
 
 ## A Topological Knowledge Engine for Simplicial Complex Logic
+[![DOI](https://zenodo.org/badge/1216071809.svg)](https://doi.org/10.5281/zenodo.22538544)
 
 VeriLogos is a research-oriented computational framework for representing, transforming, and analyzing logical knowledge through simplicial complexes.
 
@@ -641,6 +642,7 @@ bibtex
   title   = {VeriLogos: A Topological Knowledge Engine for Simplicial Complex Logic},
   year    = {2026},
   url     = {https://github.com/pourmoslemy/VeriLogos}
+  DOI     = [![DOI](https://zenodo.org/badge/1216071809.svg)](https://doi.org/10.5281/zenodo.22538544)
 }
 
 A publication-specific citation should be used when referring to a particular theorem, definition, semantic construction, or experimental result.
@@ -651,7 +653,7 @@ A publication-specific citation should be used when referring to a particular th
 
 **Alireza Pourmoslemi**
 
-Assistant Professor of Mathematics
+Department of Mathematics,  Payame Noor University, Tehran, Iran.
 
 Research interests:
 
