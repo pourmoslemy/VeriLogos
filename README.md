@@ -672,7 +672,4 @@ https://github.com/pourmoslemy/VeriLogos
 ## License
 
 See the repository license for terms of use.
-  
-5. **تبدیل آن به README آکادمیک-Developer style واقعی** با لحن دقیق‌تر و مینیمال‌تر  
 
-اگر بخواهی، در پیام بعدی یک **نسخه نهایی GitHub-grade** هم می‌دهم که از همین حالا قابل قرار دادن در repo باشد.
