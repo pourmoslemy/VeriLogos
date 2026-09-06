@@ -642,7 +642,7 @@ bibtex
   title   = {VeriLogos: A Topological Knowledge Engine for Simplicial Complex Logic},
   year    = {2026},
   url     = {https://github.com/pourmoslemy/VeriLogos}
-  DOI     = [![DOI](https://zenodo.org/badge/1216071809.svg)](https://doi.org/10.5281/zenodo.22538544)
+  DOI     = 10.5281/zenodo.22538545
 }
 
 A publication-specific citation should be used when referring to a particular theorem, definition, semantic construction, or experimental result.
